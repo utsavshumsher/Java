@@ -1,18 +1,17 @@
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Check {
     public static void main(String[] args) {
-        Scanner check = new Scanner(System.in);
-        System.out.println("Enter the first number A:");
-        int a = check.nextInt();
-        System.out.println("Enter the second number B:");
-        int b = check.nextInt();
-        if (a>b){
-            System.out.println("A is greater");
 
+
+        int a= Integer.parseInt(JOptionPane.showInputDialog(null,"Enter first number A: "));
+        int b =Integer.parseInt(JOptionPane.showInputDialog(null,"Enter second number B:"));
+        if (a > b) {
+            JOptionPane.showMessageDialog(null,"A is greater");
         }
         else{
-            System.out.println("B is greater");
+            JOptionPane.showMessageDialog(null,"B is greater");
         }
     }
 }
@@ -290,5 +289,306 @@ class Check13{
                 amount = amount % 1;
             }
         }
+    }
+}
+
+class Triangle{
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+
+        System.out.println("Enter the first angle: ");
+        float f=scanner.nextFloat();
+        System.out.println("Enter the second angle: ");
+        float s=scanner.nextFloat();
+        System.out.println("Enter the third angle: ");
+        float t=scanner.nextFloat();
+
+        float sum=f+s+t;
+
+        if (sum==180){
+            System.out.println("The triangle is valid");
+        }
+        else {
+            System.out.println("The triangle is not valid");
+        }
+    }
+}
+class Side{
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+
+        System.out.println("Enter the first side: ");
+        float f_side=scanner.nextFloat();
+        System.out.println("Enter the second side: ");
+        float s_side=scanner.nextFloat();
+        System.out.println("Enter the third side : ");
+        float t_side=scanner.nextFloat();
+
+        if((f_side+s_side>t_side) &&
+                (t_side+s_side>f_side)&&
+                (f_side+t_side>s_side)){
+            System.out.println("it is a valid triangle.");
+        }
+        else{
+            System.out.println("it is not valid triangle");
+        }
+    }
+}
+class Check16{
+    public static void main(String[] args) {
+        Scanner myobj = new Scanner(System.in);
+        System.out.println("Enter your amount");
+        int amount = myobj.nextInt();
+        int note1000,note500, note100, note50, note20, note10, note5, note2, note1;
+        note1000 = note500 = note100 = note50 = note20 = note10 = note5 = note2 = note1 = 0;
+        if(amount >= 1000)
+        {
+            note1000 = amount/1000;
+            amount -= note1000 * 1000;
+        }
+        if(amount >= 500)
+        {
+            note500 = amount/500;
+            amount -= note500 * 500;
+        }
+        if(amount >= 100)
+        {
+            note100 = amount/100;
+            amount -= note100 * 100;
+        }
+        if(amount >= 50)
+        {
+            note50 = amount/50;
+            amount -= note50 * 50;
+        }
+        if(amount >= 20)
+        {
+            note20 = amount/20;
+            amount -= note20 * 20;
+        }
+        if(amount >= 10)
+        {
+            note10 = amount/10;
+            amount -= note10 * 10;
+        }
+        if(amount >= 5)
+        {
+            note5 = amount/5;
+            amount -= note5 * 5;
+        }
+        if(amount >= 2)
+        {
+            note2 = amount /2;
+            amount -= note2 * 2;
+        }
+        if(amount >= 1)
+        {
+            note1 = amount;
+        }
+
+        System.out.println("Total number of notes = \n");
+        System.out.println("1000 = "+note1000+"\n");
+        System.out.println("500 = "+note500+"\n");
+        System.out.println("100 = "+note100+"\n");
+        System.out.println("50 = "+note50+"\n");
+        System.out.println("20 = "+note20+"\n");
+        System.out.println("10 = "+note10+"\n");
+        System.out.println("5 = "+note5+"\n");
+        System.out.println("2 = "+note2+"\n");
+        System.out.println("1 = "+note1+"\n");
+    }
+}
+
+/*16. Write a JAVA program to check whether the triangle is equilateral, isosceles or scalene triangle.
+ */
+
+class Determine_triangle1{
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+
+        System.out.println("Enter the first side: ");
+        float f_side=scanner.nextFloat();
+        System.out.println("Enter the second side: ");
+        float s_side=scanner.nextFloat();
+        System.out.println("Enter the third side : ");
+        float t_side=scanner.nextFloat();
+
+        if(f_side==s_side &&f_side==t_side){
+            System.out.println("it is a equilateral triangle.");
+        }
+        else if(f_side==s_side ||f_side==t_side){
+            System.out.println("it is a isosceles triangle.");
+        }
+        else{
+            System.out.println("it is a scalene triangle");
+        }
+    }
+}
+//17.
+class RootsOfQuadratic {
+    public static void main(String args[]) {
+        double secondRoot , firstRoot;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the value of a :");
+        double a = sc.nextDouble();
+
+        System.out.println("Enter the value of b :");
+        double b = sc.nextDouble();
+
+        System.out.println("Enter the value of c :");
+        double c = sc.nextDouble();
+
+        double determinant = (b * b) - (4 * a * c);
+        double sqrt = Math.sqrt(determinant);
+
+        if (determinant > 0) {
+            firstRoot = (-b + sqrt) / (2 * a);
+            secondRoot = (-b - sqrt) / (2 * a);
+            System.out.println("Roots are :: " + firstRoot + " and " + secondRoot);
+        } else if (determinant == 0) {
+            System.out.println("Root is :: " + (-b + sqrt) / (2 * a));
+        }
+        else {
+
+            // roots are complex number and distinct
+            double real = -b / (2 * a);
+            double imaginary = Math.sqrt(-determinant) / (2 * a);
+            System.out.format("root1 = %.2f+%.2fi", real, imaginary);
+            System.out.format("\nroot2 = %.2f-%.2fi", real, imaginary);
+        }
+    }
+}
+
+
+//18. Write a JAVA program to calculate profit or loss.
+class Profit_loss{
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+
+        System.out.println("Enter the cost price");
+        double cp=scanner.nextDouble();
+        System.out.println("Enter the selling price");
+        double sp=scanner.nextDouble();
+
+        if (cp>sp){
+            double loss=cp-sp;
+            System.out.println("The loss amount is\t"+loss);
+        }
+        else{
+            double profit=sp-cp;
+            System.out.println("The profit amount is\t"+profit);
+        }
+    }
+}
+/*19. Write a JAVA program to input marks of five subjects Physics, Chemistry, Biology,
+Mathematics and Computer. Calculate percentage and grade according to following:
+Percentage >= 90% : Grade A
+Percentage >= 80% : Grade B
+Percentage >= 70% : Grade C
+Percentage >= 60% : Grade D
+Percentage >= 40% : Grade E
+Percentage < 40% : Grade F*/
+class Marks{
+    public static void main(String[] args) {
+        Scanner scanner =new Scanner(System.in);
+
+        System.out.println("Enter the marks of Physics sub ");
+        double f=scanner.nextDouble();
+        System.out.println("Enter the marks of Chemistry sub ");
+        double s=scanner.nextDouble();
+        System.out.println("Enter the marks of math sub ");
+        double t=scanner.nextDouble();
+        System.out.println("Enter the marks of social sub ");
+        double four=scanner.nextDouble();
+        System.out.println("Enter the marks of Biology sub ");
+        double five=scanner.nextDouble();
+
+        double t_marks=f+s+t+four+five;
+        double percent=(t_marks)/5;
+
+        System.out.println("you total marks is "+ t_marks);
+        System.out.println("you total percent is "+ percent);
+
+        if (percent>=90){
+            System.out.println("Grade A");
+        }
+        else if (percent>=80 && percent<=90){
+            System.out.println("Grade B");
+        }
+        else if(percent>=70 && percent<=80){
+            System.out.println("Grade C");
+        }
+        else if (percent>=60 && percent<=70){
+            System.out.println("Grade D");
+        }
+        else if (percent>=50 && percent<=60){
+            System.out.println("Grade E");
+        }
+        else if (percent>=40 && percent<=50){
+            System.out.println("Grade F");
+        }
+        else{
+            System.out.println("fail");
+        }
+    }
+}
+/*20. Write a JAVA program to input basic salary of an employee and calculate its Gross salary
+according to following:
+Basic Salary <= 10000 : HRA = 20%, DA = 80%
+Basic Salary <= 20000 : HRA = 25%, DA = 90%
+Basic Salary > 20000 : HRA = 30%, DA = 95%*/
+class Salary{
+    public static void main(String[] args) {
+        double b_salary, hra, da, gross;
+        Scanner scanner= new Scanner(System.in);
+
+        System.out.println("enter the basic salary");
+        b_salary=scanner.nextDouble();
+
+        if (b_salary <= 10000 ){
+            hra=b_salary*0.2;
+            da=b_salary*0.8;
+        }
+        else if (b_salary <= 20000 ){
+            hra=b_salary*0.25;
+            da=b_salary*0.90;
+        }
+        else {
+            hra=b_salary*0.3;
+            da=b_salary*0.95;
+        }
+        gross=b_salary+hra+da;
+        System.out.println("Gross salary is "+gross);
+
+    }
+}
+/*21. Write a JAVA program to input electricity unit charges and calculate total electricity bill
+according to the given condition:
+For first 50 units Rs. 0.50/unit
+For next 100 units Rs. 0.75/unit
+For next 100 units Rs. 1.20/unit
+For unit above 250 Rs. 1.50/unit
+An additional surcharge of 20% is added to the bill*/
+class Electricity{
+    public static void main(String[] args) {
+        double units, bill_amount;
+        Scanner scanner= new Scanner(System.in);
+
+        System.out.println("enter the total units consumed");
+        units=scanner.nextDouble();
+
+        if (units<=50){
+            bill_amount=units*0.5;
+        }
+        if (units>50 && units<=100){
+            bill_amount=units*0.75;
+        }
+        if (units>100 && units<=250){
+            bill_amount=units*1.20;
+        }
+        else {
+            bill_amount=units*1.50;
+        }
+        System.out.println("The total bill amount is "+ bill_amount);
     }
 }
